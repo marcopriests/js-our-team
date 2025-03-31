@@ -36,3 +36,24 @@ const teamMembers = [
     img: "img/female3.png"
   }
 ];
+
+//creo la funzione che crea l'oggetto
+const createMember = (array) => {
+  const {name, role, email, img} = array
+
+  const card = `<div class="col-12 col-md-6 col-lg-4">
+                <div class="member bg-black d-flex text-light">
+                    <img src="./img/${img}" class="image" alt="">
+
+                    <div class="member-info p-2">
+                        <h5 class="name text-uppercase fw-bold mt-3">${name}</h5>
+                        <p class="role mb-2 fs-5">${role}</p>
+                        <p class="text-info mail fs-5">${email}</p>
+                    </div>
+                </div>
+            </div>`
+
+  return card
+}
+
+console.log(createMember(teamMembers))
