@@ -56,8 +56,6 @@ const createMember = (member) => {
   return card
 }
 
-console.log(createMember(teamMembers[0]))
-
 //creo una funzione che inserisca in pagina i vari membri utilizzando un ciclo
 const renderPage = (array) => {
 
