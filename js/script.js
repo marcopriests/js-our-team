@@ -59,26 +59,35 @@ const createMember = (member) => {
 //creo una funzione che inserisca in pagina i vari membri utilizzando un ciclo
 const renderPage = (array) => {
 
+  //dichiaro una variabile che conterrà tutte le cards
+  let cards = ''
+
   for (let i = 0; i < array.length; i++) {
-    document.getElementById('team-members').innerHTML += createMember(array[i])
+    cards += createMember(array[i])
 
   }
+
+  document.getElementById('team-members').innerHTML = cards
 
 }
 
 renderPage(teamMembers)
 
+//recupero i valori dell'input
+const inputName = document.getElementById('name')
+const inputRole = document.getElementById('role')
+const inputEmail = document.getElementById('email')
+const inputImg = document.getElementById('img')
 const button = document.getElementById('btn')
 
 //aggiungo l'event listener
 button.addEventListener('click', (event) => {
   event.preventDefault()
 
-  //recupero gli elementi dal dom
-  const name = document.getElementById('name').value
-  const role = document.getElementById('role').value
-  const email = document.getElementById('email').value
-  const img = "img/" + document.getElementById('img').value
+  const name = inputName.value
+  const role = inputRole.value
+  const email = inputEmail.value
+  const img = 'img/' + inputImg.value
 
   //creo un nuovo oggetto con i valori inseriti
   const newMember = { name, role, email, img }
@@ -89,11 +98,9 @@ button.addEventListener('click', (event) => {
   //richiamo la funzione render
   renderPage(teamMembers)
 
-  //azzero i campi del form
-  name.value = ''
-  role.value = ''
-  email.value = ''
-  img.value = ''
-
-  console.log(teamMembers)
+  //azzero gli input fields
+  inputName.value = ''
+  inputRole.value = ''
+  inputEmail.value = ''
+  inputImg.value = ''
 })
