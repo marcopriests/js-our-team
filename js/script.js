@@ -38,17 +38,17 @@ const teamMembers = [
 ];
 
 //creo la funzione che crea l'oggetto
-const createMember = (array) => {
-  const {name, role, email, img} = array
+const createMember = (member) => {
+  const {name, role, email, img} = member
 
-  const card = `<div class="col-12 col-md-6 col-lg-4">
+  const card = `<div class="col-12 col-md-6 col-lg-6 col-xl-4">
                 <div class="member bg-black d-flex text-light">
-                    <img src="./img/${img}" class="image" alt="">
+                    <img src="./${img}" class="image" alt="">
 
                     <div class="member-info p-2">
                         <h5 class="name text-uppercase fw-bold mt-3">${name}</h5>
                         <p class="role mb-2 fs-5">${role}</p>
-                        <p class="text-info mail fs-5">${email}</p>
+                        <p class="text-info mail fs-6">${email}</p>
                     </div>
                 </div>
             </div>`
@@ -56,4 +56,16 @@ const createMember = (array) => {
   return card
 }
 
-console.log(createMember(teamMembers))
+console.log(createMember(teamMembers[0]))
+
+//creo una funzione che inserisca in pagina i vari membri utilizzando un ciclo
+const renderPage = (array) => {
+
+  for (let i = 0; i < array.length; i++) {
+    document.getElementById('team-members').innerHTML += createMember(array[i])
+    
+  }
+
+}
+
+renderPage(teamMembers)
