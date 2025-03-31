@@ -80,6 +80,7 @@ const inputEmail = document.getElementById('email')
 const inputImg = document.getElementById('img')
 const button = document.getElementById('btn')
 
+
 //aggiungo l'event listener
 button.addEventListener('click', (event) => {
   event.preventDefault()
@@ -94,6 +95,7 @@ button.addEventListener('click', (event) => {
 
   //pusho il nuovo membro nell'array iniziale
   teamMembers.push(newMember)
+
 
   //richiamo la funzione render
   renderPage(teamMembers)
