@@ -39,7 +39,7 @@ const teamMembers = [
 
 //creo la funzione che crea l'oggetto
 const createMember = (member) => {
-  const {name, role, email, img} = member
+  const { name, role, email, img } = member
 
   const card = `<div class="col-12 col-md-6 col-lg-6 col-xl-4">
                 <div class="member bg-black d-flex text-light">
@@ -61,9 +61,39 @@ const renderPage = (array) => {
 
   for (let i = 0; i < array.length; i++) {
     document.getElementById('team-members').innerHTML += createMember(array[i])
-    
+
   }
 
 }
 
 renderPage(teamMembers)
+
+const button = document.getElementById('btn')
+
+//aggiungo l'event listener
+button.addEventListener('click', (event) => {
+  event.preventDefault()
+
+  //recupero gli elementi dal dom
+  const name = document.getElementById('name').value
+  const role = document.getElementById('role').value
+  const email = document.getElementById('email').value
+  const img = "img/" + document.getElementById('img').value
+
+  //creo un nuovo oggetto con i valori inseriti
+  const newMember = { name, role, email, img }
+
+  //pusho il nuovo membro nell'array iniziale
+  teamMembers.push(newMember)
+
+  //richiamo la funzione render
+  renderPage(teamMembers)
+
+  //azzero i campi del form
+  name.value = ''
+  role.value = ''
+  email.value = ''
+  img.value = ''
+
+  console.log(teamMembers)
+})
